@@ -1,0 +1,17 @@
+language: php
+
+before_install:
+  - sh -c "mkdir -p module-cache/`php-config --vernum`"
+  
+before_script:
+  - MODULES="apcu.so:apcu-beta memcached.so:memcached" ./.travis-modulecache.sh
+
+cache:
+  directories:
+  - module-cache
+
+script:
+  - echo ":-)"
+
+php:
+  - 5.5
